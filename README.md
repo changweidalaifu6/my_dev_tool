@@ -117,6 +117,7 @@ my_dev_tool timestamp 1609459200
 
 1. 访问 [crates.io](https://crates.io/) 并注册一个帐户。
 2. 登录后，在 "Account Settings" 中获取您的 API 令牌。
+3. 验证自己的邮箱，邮箱只有验证成功才可以publish包。
 
 #### 第（2）步：登录 Cargo
 
