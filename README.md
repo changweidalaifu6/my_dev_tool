@@ -171,7 +171,7 @@ cargo publish
 ```bash
 cargo install my_dev_tool
 ```
-#### 建议成果
+#### 展示成果
 ```shell
 % cargo install my_dev_tool
     Updating crates.io index
