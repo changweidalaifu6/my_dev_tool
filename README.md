@@ -170,6 +170,37 @@ cargo publish
 ```bash
 cargo install my_dev_tool
 ```
+#### 建议成果
+```shell
+% cargo install my_dev_tool
+    Updating crates.io index
+  Downloaded my_dev_tool v0.1.0
+  Downloaded 1 crate (10.7 KB) in 2.64s
+  Installing my_dev_tool v0.1.0
+    Updating crates.io index
+   Compiling autocfg v1.1.0
+   Compiling utf8parse v0.2.1
+   Compiling anstyle-query v1.0.0
+   Compiling colorchoice v1.0.0
+   Compiling anstyle v1.0.4
+   Compiling strsim v0.10.0
+   Compiling clap_lex v0.6.0
+   Compiling iana-time-zone v0.1.58
+   Compiling urlencoding v2.1.3
+   Compiling anstyle-parse v0.2.2
+   Compiling anstream v0.6.4
+   Compiling num-traits v0.2.17
+   Compiling clap_builder v4.4.8
+   Compiling chrono v0.4.31
+   Compiling clap v4.4.8
+   Compiling my_dev_tool v0.1.0
+    Finished release [optimized] target(s) in 7.84s
+  Installing /home/maocg/.cargo/bin/my_dev_tool
+   Installed package `my_dev_tool v0.1.0` (executable `my_dev_tool`)
+
+% my_dev_tool timestamp 1609459200
+2021-01-01T08:00:00+08:00
+```
 
 ### 注意事项
 
