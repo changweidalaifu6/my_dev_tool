@@ -1,5 +1,5 @@
 ## 手撸一个命令行工具
-要使用 Rust 和 `clap` 4.4.0 创建一个命令行工具 `my_dev_tool`，实现 urlencode、urldecode 和时间戳转换为本地时间的功能，您可以按照以下步骤进行：
+本项目会使用 Rust 和 `clap` 4.4.0 创建一个命令行工具 `my_dev_tool`，先实现 urlencode、urldecode 和时间戳转换为本地时间三个功能。如果你也想实现一个自己的命令行工具，可以按照以下步骤进行：
 
 ### 第 1 步：创建项目并添加依赖
 
@@ -32,7 +32,7 @@ fn main() {
     let matches = Command::new("my_dev_tool")
         .version("1.0")
         .author("Your Name <your.email@example.com>")
-        .about("Developer's Swiss Army Knife")
+        .about("Developer's tool for urlencode and time format!")
         .subcommand_required(true)
         .arg_required_else_help(true)
         .subcommand(
@@ -109,24 +109,16 @@ my_dev_tool urldecode "https%3A%2F%2Fexample.com"
 my_dev_tool timestamp 1609459200
 ```
 
-这个工具将根据您的命令和提供的参数执行相应的操作。
-
-### 注意事项
-
-- 在编写命令行工具时，请确保处理了所有可能的错误情况。
-- 如果您的系统已经安装了 Rust 和 Cargo，您可以直接按照上述步骤进行。
-- `clap` 的版本 4.4.0 提供了丰富的 API 来定义和解析命令行参数，确保检查其文档以充分利用其功能。
-
-### 第五步，支持cargo安装
+### 第5步，支持cargo安装
 
 要使您的 `my_dev_tool` 命令行工具能够通过 `cargo install` 安装，您需要将其发布到 [crates.io](https://crates.io/)，这是 Rust 的包管理仓库。在发布之前，您需要创建一个帐户并获取一个 API 令牌用于身份验证。以下是将您的工具准备并发布到 crates.io 的步骤：
 
-#### 第 1 步：注册 crates.io 帐户
+#### 第（1）步：注册 crates.io 帐户
 
 1. 访问 [crates.io](https://crates.io/) 并注册一个帐户。
 2. 登录后，在 "Account Settings" 中获取您的 API 令牌。
 
-#### 第 2 步：登录 Cargo
+#### 第（2）步：登录 Cargo
 
 在您的终端中，使用以下命令登录 Cargo：
 
@@ -136,7 +128,7 @@ cargo login [your_api_token]
 
 将 `[your_api_token]` 替换为您在 crates.io 上的 API 令牌。
 
-#### 第 3 步：准备发布
+#### 第（3）步：准备发布
 
 确保您的 `Cargo.toml` 文件包含所有必要的信息，这对于发布至 crates.io 是必要的。下面是一个示例：
 
@@ -160,7 +152,7 @@ urlencoding = "2.1"
 
 确保更新 `authors`、`description`、`documentation`（如果适用），以及任何其他相关信息。
 
-#### 第 4 步：发布到 crates.io
+#### 第（4）步：发布到 crates.io
 
 在您的项目目录中运行以下命令来发布您的包：
 
@@ -170,7 +162,7 @@ cargo publish
 
 这将会把您的包上传到 crates.io。
 
-### 第 5 步：通过 Cargo 安装
+### 第6步：通过 Cargo 安装
 
 一旦您的包被成功发布到 crates.io，其他人就可以通过运行以下命令来安装您的工具：
 
