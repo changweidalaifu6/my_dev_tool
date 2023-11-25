@@ -108,6 +108,7 @@ my_dev_tool urlencode "https://example.com"
 my_dev_tool urldecode "https%3A%2F%2Fexample.com"
 my_dev_tool timestamp 1609459200
 ```
+正常教程到这里就结束了，但是通过复制的方法安装命令行，实在是low，必须要使用一种装逼的方式来安装。因此，下面的步骤才是命令行装逼的关键，支持cargo安装。
 
 ### 第5步，支持cargo安装
 
