@@ -91,17 +91,17 @@ fn convert_timestamp(matches: &ArgMatches) {
 
 2. **安装到系统**：
 
-    - 在 Linux 或 macOS 上，您可以将编译后的可执行文件复制到 `/usr/local/bin` 或其他 PATH 包含的目录：
+    - 在 Linux 或 macOS 上，你可以将编译后的可执行文件复制到 `/usr/local/bin` 或其他 PATH 包含的目录：
 
       ```bash
       sudo cp target/release/my_dev_tool /usr/local/bin/
       ```
 
-    - 在 Windows 上，您可以将可执行文件复制到任何 PATH 包含的目录，或者手动添加其所在目录到系统 PATH。
+    - 在 Windows 上，你可以将可执行文件复制到任何 PATH 包含的目录，或者手动添加其所在目录到系统 PATH。
 
 ### 第 4 步：使用工具
 
-一旦安装，您就可以直接在命令行中使用 `my_dev_tool`，例如：
+一旦安装，你就可以直接在命令行中使用 `my_dev_tool`，例如：
 
 ```bash
 my_dev_tool urlencode "https://example.com"
@@ -112,27 +112,27 @@ my_dev_tool timestamp 1609459200
 
 ### 第5步，支持cargo安装
 
-要使您的 `my_dev_tool` 命令行工具能够通过 `cargo install` 安装，您需要将其发布到 [crates.io](https://crates.io/)，这是 Rust 的包管理仓库。在发布之前，您需要创建一个帐户并获取一个 API 令牌用于身份验证。以下是将您的工具准备并发布到 crates.io 的步骤：
+要使你的 `my_dev_tool` 命令行工具能够通过 `cargo install` 安装，你需要将其发布到 [crates.io](https://crates.io/)，这是 Rust 的包管理仓库。在发布之前，你需要创建一个帐户并获取一个 API 令牌用于身份验证。以下是将你的工具准备并发布到 crates.io 的步骤：
 
 #### 第（1）步：注册 crates.io 帐户
 
 1. 访问 [crates.io](https://crates.io/) 并注册一个帐户。
-2. 登录后，在 "Account Settings" 中获取您的 API 令牌。
+2. 登录后，在 "Account Settings" 中获取你的 API 令牌。
 3. 验证自己的邮箱，邮箱只有验证成功才可以publish包。
 
 #### 第（2）步：登录 Cargo
 
-在您的终端中，使用以下命令登录 Cargo：
+在你的终端中，使用以下命令登录 Cargo：
 
 ```bash
 cargo login [your_api_token]
 ```
 
-将 `[your_api_token]` 替换为您在 crates.io 上的 API 令牌。
+将 `[your_api_token]` 替换为你在 crates.io 上的 API 令牌。
 
 #### 第（3）步：准备发布
 
-确保您的 `Cargo.toml` 文件包含所有必要的信息，这对于发布至 crates.io 是必要的。下面是一个示例：
+确保你的 `Cargo.toml` 文件包含所有必要的信息，这对于发布至 crates.io 是必要的。下面是一个示例：
 
 ```toml
 [package]
@@ -156,17 +156,17 @@ urlencoding = "2.1"
 
 #### 第（4）步：发布到 crates.io
 
-在您的项目目录中运行以下命令来发布您的包：
+在你的项目目录中运行以下命令来发布你的包：
 
 ```bash
 cargo publish
 ```
 
-这将会把您的包上传到 crates.io。
+这将会把你的包上传到 crates.io。
 
 ### 第6步：通过 Cargo 安装
 
-一旦您的包被成功发布到 crates.io，其他人就可以通过运行以下命令来安装您的工具：
+一旦你的包被成功发布到 crates.io，其他人就可以通过运行以下命令来安装你的工具：
 
 ```bash
 cargo install my_dev_tool
