@@ -129,6 +129,18 @@ fn add_completion_script_to_shell_config(config_file: &PathBuf, completion_scrip
 }
 ```
 
+### 展示成果
+在命令行输入`my_dev_tool`后，按tab键会提示所有命令。
+
+```
+~ % my_dev_tool time
+add-completion  -- Generates completion scripts for your shell
+help            -- Print this message or the help of the given subcommand(s)
+timestamp       -- Convert a UNIX timestamp to local datetime
+urldecode       -- URL-decode a string
+urlencode       -- URL-encode a string
+```
+
 ### 说明
 
 - 该程序首先使用 `dirs::home_dir()` 来获取用户的家目录。

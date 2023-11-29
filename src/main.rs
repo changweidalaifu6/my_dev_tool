@@ -85,15 +85,15 @@ fn add_completion(matches: &ArgMatches){
     let config_file;
     if shell.contains("zsh") {
         config_file = home_dir.join(".zshrc");
-        let _ = generate_to(Zsh, &mut app, "my_dev_tool_completion", "~/");
+        let _ = generate_to(Zsh, &mut app, "my_dev_tool", "./").expect("generate_to failed");
         println!("Generated Zsh completion script.");
     } else {
         config_file = home_dir.join(".bashrc");
         // 默认生成 Bash 补全脚本
-        let _ = generate_to(Bash, &mut app, "my_dev_tool_completion", "~/");
+        let _ = generate_to(Bash, &mut app, "my_dev_tool", "./").expect("generate_to failed");
         println!("Generated Bash completion script.");
     }
-    let completion_script_path = PathBuf::from("~/my_dev_tool_completion");
+    let completion_script_path = PathBuf::from("./_my_dev_tool");
 
     let _ = add_completion_to_shell(&config_file, &completion_script_path);
 }
