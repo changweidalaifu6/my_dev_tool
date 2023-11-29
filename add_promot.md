@@ -1,8 +1,26 @@
-在 Rust 中，使用 `clap` 库（版本 4.4）编写的命令行工具可以通过生成 shell 的自动补全脚本来支持命令行参数的自动提示。`clap` 能够为各种常见的 shell（如 Bash, Zsh, Fish 等）生成相应的自动补全脚本。
+在上一个教程里，教了如何实现一个命令行，以及命令行支持cargo安装。
 
-为了生成这些脚本，并让系统能自动提示命令参数，你需要遵循以下步骤：
+但是这个命令行工具，在使用的时候有个致命的问题，就是没有提示。
 
-### 1. 在你的 Rust 程序中生成补全脚本
+比如我要执行my_dev_tool，按tal键我看不到任何命令的提示，这样太不人性化了。
+
+### 命令补全原理
+
+clap的命令可以通过clap_complete包生成一个补全脚本，把这个脚本加到bash环境就可以自动提示了。
+
+为了生成这些脚本，并让系统能自动提示命令参数，你需要按以下步骤：
+
+
+### 1. 修改依赖关系
+新增两个两个clap_complete和dirs。
+```
+[dependencies]
+clap_complete = "4.4.0"
+dirs = "4.0"
+```
+
+
+### 2. 在你的 Rust 程序中生成补全脚本
 
 首先，你需要修改你的 Rust 程序，使其能够生成相应的补全脚本。这可以在程序的一个特定命令或选项下实现。
 
@@ -41,7 +59,7 @@ fn main() -> io::Result<()> {
 
 在这个示例中，我们添加了一个名为 `generate-completions` 的子命令，当运行此命令时，程序将生成 Bash 的自动补全脚本。
 
-### 2. 运行你的程序以生成补全脚本
+### 3. 把补全脚本添加到环境
 
 在命令行中运行你的程序，并使用刚刚添加的命令生成补全脚本。
 
@@ -115,7 +133,7 @@ fn main() {
 
 fn add_completion_script_to_shell_config(config_file: &PathBuf, completion_script_path: &PathBuf) -> std::io::Result<()> {
     let completion_script_str = format!("source {}", completion_script_path.display());
-    
+  
     let mut config = OpenOptions::new().append(true).open(config_file)?;
 
     if fs::read_to_string(config_file)?.contains(&completion_script_str) {
@@ -130,7 +148,8 @@ fn add_completion_script_to_shell_config(config_file: &PathBuf, completion_scrip
 ```
 
 ### 展示成果
-在命令行输入`my_dev_tool`后，按tab键会提示所有命令。
+
+在命令行输入 `my_dev_tool`后，按tab键会提示所有命令。
 
 ```
 ~ % my_dev_tool time
